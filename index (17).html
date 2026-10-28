@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="How 115 teachers use Brisk: reach, tools, staying power, and next steps.">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Brisk on Campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a five-page site under one tab bar. Each page = one claim, two or three charts in a grid, one takeaway. Highlighter marks carry emphasis. */
+:root{
+  --paper:#f3f5f9; --surface:#ffffff; --ink:#131726; --ink-2:#4a5064; --muted:#737a8f; --rule:#dde1ea;
+  --hl:#ffe55a; --hl-ink:#131726;
+  --data:#2a78d6; --data-soft:#a9cbf4; --data-quiet:#cdd3de;
+  --r1:#86b6ef; --r2:#5598e7; --r3:#2a78d6; --r4:#1c5cab;
+  --t1:#2a78d6; --t2:#eb6834; --t3:#1baf7a; --t4:#eda100; --t5:#e87ba4; --t6:#008300;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-data:"DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#0f121a; --surface:#161a25; --ink:#eceef5; --ink-2:#b2b7c8; --muted:#878da1; --rule:#272d3c;
+  --hl:#e8cd36; --hl-ink:#131726;
+  --data:#3987e5; --data-soft:#2a4c7c; --data-quiet:#363d4f;
+  --r1:#184f95; --r2:#2a78d6; --r3:#5598e7; --r4:#86b6ef;
+  --t1:#3987e5; --t2:#d95926; --t3:#199e70; --t4:#c98500; --t5:#d55181; --t6:#008300;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#0f121a; --surface:#161a25; --ink:#eceef5; --ink-2:#b2b7c8; --muted:#878da1; --rule:#272d3c;
+  --hl:#e8cd36; --hl-ink:#131726;
+  --data:#3987e5; --data-soft:#2a4c7c; --data-quiet:#363d4f;
+  --r1:#184f95; --r2:#2a78d6; --r3:#5598e7; --r4:#86b6ef;
+  --t1:#3987e5; --t2:#d95926; --t3:#199e70; --t4:#c98500; --t5:#d55181; --t6:#008300;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-0.02em}
+p{margin:0}
+.num{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+
+/* header + tabs */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:60px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:18px;letter-spacing:-0.01em;display:flex;align-items:center;gap:9px;white-space:nowrap;color:var(--ink);text-decoration:none}
+.brand i{width:11px;height:11px;border-radius:50%;background:var(--data);display:inline-block}
+.tabs{position:relative;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0;flex:1;align-self:stretch;align-items:stretch}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{display:flex;align-items:center;padding:0 12px;color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap;transition:color .2s}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current="page"]{color:var(--ink);font-weight:600}
+.tabs a:focus-visible{outline:2px solid var(--data);outline-offset:-4px;border-radius:6px}
+.tabs .ink{position:absolute;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--ink);transition:left .35s cubic-bezier(.5,0,.2,1),width .35s cubic-bezier(.5,0,.2,1)}
+.meta{font-size:12px;color:var(--muted);white-space:nowrap}
+@media (max-width:860px){.meta{display:none}}
+@media (max-width:600px){.top .wrap{flex-direction:column;align-items:stretch;gap:0;padding-block:10px 0}.tabs{margin-inline:-8px;min-height:44px}}
+
+/* views */
+.view{padding-block:40px 56px}
+.view.enter{animation:viewIn .5s cubic-bezier(.3,.7,.2,1) both}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.vhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 32px}
+.vhead h2{font-size:clamp(28px,3.6vw,42px);line-height:1.08;font-weight:700;margin-top:8px;max-width:22ch}
+.vhead p{color:var(--ink-2);margin-top:12px;max-width:62ch;font-size:17px}
+.vhead > div{min-width:0}
+
+mark.hl{color:var(--hl-ink);background:linear-gradient(100deg, transparent 0 .2em, var(--hl) .2em calc(100% - .15em), transparent calc(100% - .15em)) no-repeat 0 55% / 100% 78%;padding:0 .12em;border-radius:.15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.enter mark.hl{animation:swipe .9s .25s cubic-bezier(.6,.1,.2,1) both}
+@keyframes swipe{from{background-size:0% 78%}to{background-size:100% 78%}}
+
+.grid2{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;margin-top:28px}
+.grid2.even{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.grid2,.grid2.even{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:20px 22px;min-width:0;display:flex;flex-direction:column}
+.panel h3{font-size:17px;font-weight:700;letter-spacing:-0.01em}
+.panel .sub{font-size:13px;color:var(--muted);margin-top:2px}
+.ptop{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:10px 16px;margin-bottom:16px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink-2)}
+.legend span{display:flex;align-items:center;gap:7px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block;flex:none}
+
+.seg{display:inline-flex;background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:3px;position:relative}
+.seg button{all:unset;cursor:pointer;font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;color:var(--ink-2);position:relative;z-index:1;transition:color .25s;white-space:nowrap}
+.seg button[aria-pressed="true"]{color:var(--paper)}
+.seg button:focus-visible{outline:2px solid var(--data);outline-offset:2px}
+.seg .thumb{position:absolute;top:3px;bottom:3px;border-radius:999px;background:var(--ink);transition:left .35s cubic-bezier(.5,0,.2,1),width .35s cubic-bezier(.5,0,.2,1)}
+
+.take{margin-top:18px;display:flex;gap:14px;align-items:flex-start}
+.take::before{content:"";flex:none;width:4px;align-self:stretch;border-radius:2px;background:var(--hl)}
+.take p{font-size:15px;color:var(--ink-2)}
+.take strong{color:var(--ink)}
+
+/* overview */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(36px,5vw,60px);line-height:1.04;font-weight:800;margin-top:12px}
+.hero .lede{margin-top:16px;color:var(--ink-2);font-size:18px;max-width:46ch}
+.dots{display:flex;flex-wrap:wrap;gap:7px}
+.dot{width:16px;height:16px;border-radius:50%;flex:none;transition:transform .15s}
+.dot.a{background:var(--data)}
+.dot.l{background:var(--data-soft)}
+.dot.n{background:transparent;box-shadow:inset 0 0 0 1.5px var(--data-quiet)}
+.dots .dot:hover{transform:scale(1.35)}
+.enter .dots .dot{animation:pop .45s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i) * 8ms + 150ms)}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:14px;color:var(--ink-2)}
+.key span{display:flex;align-items:center;gap:8px}
+.key b{color:var(--ink);font-family:var(--f-data);font-weight:500}
+.key .dot{width:12px;height:12px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.stat{padding:14px 4px 0;border-top:2px solid var(--ink)}
+.stat .v{font-family:var(--f-display);font-weight:700;font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.stat .k{font-size:14px;color:var(--ink-2);margin-top:4px}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.explore{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:36px}
+@media (max-width:900px){.explore{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.explore{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:14px;background:var(--surface);border:1px solid var(--rule);text-decoration:none;color:inherit;transition:transform .25s,border-color .25s;min-width:0}
+.card:hover,.card:focus-visible{transform:translateY(-3px);border-color:var(--data);outline:none}
+.card .eyebrow{font-size:11px}
+.card b{font-family:var(--f-display);font-size:19px;line-height:1.2;font-weight:700}
+.card span.go{margin-top:auto;padding-top:8px;font-size:13px;color:var(--data);font-weight:600}
+
+/* ranked columns */
+.cols-wrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;flex:1}
+.yax{position:relative;width:38px;height:230px;font-size:11px;color:var(--muted);font-family:var(--f-data)}
+.yax span{position:absolute;right:0;transform:translateY(50%)}
+.plot{position:relative;height:230px}
+.gridl{position:absolute;inset:0;pointer-events:none}
+.gridl div{position:absolute;left:0;right:0;border-top:1px dashed var(--rule)}
+.gridl div.base{border-top:1px solid var(--muted)}
+.cols{position:absolute;inset:0;display:flex;align-items:flex-end;gap:clamp(1px,.25vw,3px)}
+.col{flex:1 1 0;min-width:0;height:100%;display:flex;align-items:flex-end}
+.col i{display:block;width:100%;border-radius:3px 3px 0 0;background:var(--data-quiet);transform-origin:bottom}
+.col.top i{background:var(--data)}
+.col:hover i{filter:brightness(1.12)}
+.cols.play .col i{animation:rise .8s cubic-bezier(.5,0,.2,1) both;animation-delay:calc(var(--i) * 10ms)}
+@keyframes rise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.xcap{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--muted);margin-top:8px;margin-left:48px}
+.callouts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.callout{padding:14px 16px;border-radius:10px;background:var(--paper);min-width:0}
+.callout .v{font-family:var(--f-display);font-weight:700;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.callout .k{font-size:13px;color:var(--ink-2);margin-top:4px}
+@media (max-width:600px){.callouts{grid-template-columns:1fr}}
+
+/* svg charts */
+svg{display:block;width:100%;height:auto;overflow:visible}
+.ax text{fill:var(--muted);font-family:var(--f-data);font-size:11px}
+.ax line{stroke:var(--rule);stroke-dasharray:3 3}
+.ax line.base{stroke:var(--muted);stroke-dasharray:none}
+.lbl{fill:var(--ink);font-family:var(--f-body);font-size:13px;font-weight:600}
+.lbl-s{fill:var(--muted);font-family:var(--f-data);font-size:11px}
+.curve-area{fill:var(--data);opacity:.12}
+.curve{fill:none;stroke:var(--data);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.even-line{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:5 5;fill:none}
+.mark-dot{fill:var(--data);stroke:var(--surface);stroke-width:2.5}
+.annot{fill:var(--ink);font-family:var(--f-display);font-weight:700;font-size:15px}
+.cross{stroke:var(--ink);stroke-width:1;opacity:0}
+.hit{fill:transparent;cursor:crosshair}
+.play .curve{animation:draw 1.2s cubic-bezier(.5,0,.2,1) both}
+.play .curve-area{animation:fadeIn 1s .4s both}
+.play .grow-in{animation:fadeIn .5s 1s both}
+@keyframes draw{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+@keyframes fadeIn{from{opacity:0}}
+.scroll-x{overflow-x:auto;margin-inline:-4px;padding-inline:4px}
+.sankey.narrow .lbl{font-size:12px}
+.sankey.narrow .lbl-s{font-size:10px}
+.ribbon{opacity:.55;transition:opacity .2s}
+.ribbon:hover{opacity:.9}
+.sankey:hover .ribbon:not(:hover){opacity:.25}
+.node{fill:var(--ink)}
+.play .ribbons{animation:wipe 1.3s cubic-bezier(.5,0,.2,1) both}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* tool rows */
+.frow{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) 50px 54px;gap:14px;align-items:center;padding-block:10px;border-bottom:1px solid var(--rule)}
+.frow:last-child{border-bottom:0}
+.frow.hdr{padding-block:0 8px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.fname{font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px}
+.fdesc{font-size:12px;color:var(--muted);line-height:1.35;margin-top:2px}
+.track{height:12px;background:var(--paper);border-radius:4px;overflow:hidden}
+.track i{display:block;height:100%;border-radius:0 4px 4px 0;transition:width .7s cubic-bezier(.5,0,.2,1)}
+.fpct,.fteach{font-family:var(--f-data);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.fteach{color:var(--ink-2)}
+.frow.hdr .fpct,.frow.hdr .fteach{font-family:var(--f-body);font-size:11px}
+.play .track i{animation:fill .9s cubic-bezier(.5,0,.2,1) both;animation-delay:calc(var(--i) * 70ms)}
+@keyframes fill{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+@media (max-width:600px){
+  .frow{grid-template-columns:minmax(0,1fr) 48px 52px;gap:6px 10px}
+  .frow .track{grid-column:1 / -1;grid-row:2}
+  .frow.hdr .tcol{display:none}
+}
+
+/* tool mix stacks */
+.mix{display:flex;flex-direction:column;gap:5px}
+.mix .grp{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.mix .grp:first-child{margin-top:0}
+.mrow{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:center}
+.mrow .tot{font-family:var(--f-data);font-size:12px;color:var(--ink-2);text-align:right}
+.stack{display:flex;height:16px;border-radius:4px;overflow:hidden;background:var(--paper)}
+.stack i{display:block;height:100%;flex:none;border-left:2px solid var(--surface)}
+.stack i:first-child{border-left:0}
+.stack i:hover{filter:brightness(1.12)}
+.play .stack{animation:fill .8s cubic-bezier(.5,0,.2,1) both;animation-delay:calc(var(--i) * 40ms)}
+
+/* vertical bars */
+.vbars{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:clamp(8px,2vw,20px);align-items:end;height:210px;border-bottom:1px solid var(--muted);padding-top:30px}
+.vb{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;min-width:0}
+.vb .bar-fill{position:relative;border-radius:4px 4px 0 0;transform-origin:bottom}
+.vb:hover .bar-fill{filter:brightness(1.1)}
+.vb .lab{position:absolute;bottom:100%;left:-6px;right:-6px;text-align:center;margin-bottom:5px;font-family:var(--f-display);font-weight:700;font-size:clamp(15px,1.8vw,21px);line-height:1;font-variant-numeric:tabular-nums}
+.vticks{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:clamp(8px,2vw,20px);margin-top:8px}
+.vticks div{text-align:center;font-size:13px;font-weight:600;min-width:0;line-height:1.3}
+.vticks small{display:block;font-weight:400;color:var(--muted);font-size:11px;font-family:var(--f-data);overflow-wrap:anywhere}
+.play .bar-fill{animation:rise .9s cubic-bezier(.5,0,.2,1) both;animation-delay:calc(var(--i) * 100ms)}
+.axis-note{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+
+/* next moves */
+.moves{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.move{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:transform .25s,border-color .25s}
+.move:hover{transform:translateY(-3px);border-color:var(--data)}
+.move .v{font-family:var(--f-display);font-weight:800;font-size:56px;line-height:1;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.move h3{font-size:19px;font-weight:700}
+.move p{font-size:15px;color:var(--ink-2)}
+.move .try{margin-top:auto;padding-top:12px;border-top:1px dashed var(--rule);font-size:14px}
+.move .try b{font-weight:600}
+.enter .move{animation:viewIn .5s cubic-bezier(.3,.7,.2,1) both;animation-delay:calc(var(--i) * 90ms + 100ms)}
+@media (max-width:820px){.moves{grid-template-columns:1fr}}
+.about{margin-top:28px;padding:20px 22px;border-radius:14px;border:1px dashed var(--rule);color:var(--ink-2);font-size:14px}
+.about h3{font-size:15px;margin-bottom:8px;color:var(--ink)}
+.about ul{margin:0;padding-left:18px;display:grid;gap:5px;max-width:80ch}
+
+details{margin-top:14px;font-size:14px}
+summary{cursor:pointer;color:var(--ink-2);font-weight:500;width:max-content;max-width:100%}
+summary:focus-visible{outline:2px solid var(--data);outline-offset:2px;border-radius:4px}
+.tbl{overflow-x:auto;margin-top:10px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--rule);white-space:nowrap}
+td.n,th.n{text-align:right;font-family:var(--f-data);font-variant-numeric:tabular-nums}
+th{color:var(--muted);font-weight:600}
+
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:32px;padding-top:20px;border-top:1px solid var(--rule)}
+.pager a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:8px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--surface);transition:border-color .2s}
+.pager a:hover,.pager a:focus-visible{border-color:var(--data);outline:none}
+.pager a small{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.pager .nx{margin-left:auto;text-align:right}
+
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--paper);padding:8px 11px;border-radius:8px;font-size:13px;line-height:1.35;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s;max-width:250px}
+#tip.on{opacity:1;transform:none}
+#tip strong{font-family:var(--f-data);font-weight:500;font-size:15px;display:block}
+
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#overview"><i aria-hidden="true"></i>Brisk on Campus</a>
+    <nav class="tabs" id="tabs" aria-label="Pages">
+      <a href="#overview" data-v="overview">Overview</a>
+      <a href="#who" data-v="who">Who uses it</a>
+      <a href="#tools" data-v="tools">Tools</a>
+      <a href="#staying" data-v="staying">Staying power</a>
+      <a href="#next" data-v="next">Next moves</a>
+      <span class="ink" aria-hidden="true"></span>
+    </nav>
+    <div class="meta">115 teachers · names hidden</div>
+  </div>
+</header>
+
+<main>
+  <!-- OVERVIEW -->
+  <section class="view wrap" id="v-overview" data-view="overview">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Brisk usage · this school year and all time</div>
+        <h1>Most of us have tried Brisk. <mark class="hl">Four in ten</mark> use it this year.</h1>
+        <p class="lede">Each dot is one teacher. Hover a dot to see their actions this year and all time.</p>
+      </div>
+      <div class="panel">
+        <div class="dots" id="dots" role="img" aria-label="115 teachers: 48 using Brisk this year, 43 tried it before but not this year, 24 have not tried it."></div>
+        <div class="key">
+          <span><i class="dot a"></i><b>48</b> using it this year</span>
+          <span><i class="dot l"></i><b>43</b> tried it, not this year</span>
+          <span><i class="dot n"></i><b>24</b> haven't tried it</span>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v"><span class="count" data-to="79">79</span>%</div><div class="k">have tried Brisk at least once</div></div>
+      <div class="stat"><div class="v"><span class="count" data-to="42">42</span>%</div><div class="k">are using it this year</div></div>
+      <div class="stat"><div class="v"><span class="count" data-to="7191">7,191</span></div><div class="k">actions this year</div></div>
+      <div class="stat"><div class="v"><span class="count" data-to="4">4</span></div><div class="k">first-time users this year</div></div>
+    </div>
+    <div class="explore">
+      <a class="card" href="#who"><span class="eyebrow">Who uses it</span><b>5 teachers made half of this year's actions</b><span class="go">See the spread →</span></a>
+      <a class="card" href="#tools"><span class="eyebrow">Tools</span><b>Feedback is the top job, and heavy users specialize</b><span class="go">See the tools →</span></a>
+      <a class="card" href="#staying"><span class="eyebrow">Staying power</span><b>14 of 15 past regulars came back this year</b><span class="go">See who stayed →</span></a>
+      <a class="card" href="#next"><span class="eyebrow">Next moves</span><b>Three groups where support matters most</b><span class="go">See the plan →</span></a>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section class="view wrap" id="v-who" data-view="who" hidden>
+    <div class="vhead">
+      <div>
+        <div class="eyebrow">Who uses it</div>
+        <h2>A small group does most of the work.</h2>
+        <p id="who-lede"></p>
+      </div>
+      <div class="seg" id="seg-who" role="group" aria-label="Time range">
+        <span class="thumb"></span>
+        <button type="button" id="who-ytd" aria-pressed="true" data-v="ytd">This year</button>
+        <button type="button" id="who-all" aria-pressed="false" data-v="all">All time</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="panel">
+        <div class="ptop">
+          <div><h3>Actions per teacher</h3><div class="sub">Active users, most to least</div></div>
+          <div class="legend"><span><i class="sw" style="background:var(--data)"></i>Top 10%</span><span><i class="sw" style="background:var(--data-quiet)"></i>Everyone else</span></div>
+        </div>
+        <div class="cols-wrap">
+          <div class="yax" id="yax"></div>
+          <div class="plot"><div class="gridl" id="gridl"></div><div class="cols" id="cols" role="img" aria-label="Actions per teacher, ranked from most to least."></div></div>
+        </div>
+        <div class="xcap"><span>Most active</span><span id="xcount"></span><span>Least</span></div>
+      </div>
+      <div class="panel">
+        <div class="ptop">
+          <div><h3>Running total of actions</h3><div class="sub">All 115 teachers, most active first</div></div>
+          <div class="legend"><span><i class="sw" style="background:var(--data)"></i>Actual</span><span><i class="sw" style="background:transparent;border:1.5px dashed var(--muted)"></i>If use were even</span></div>
+        </div>
+        <svg id="curve" viewBox="0 0 420 270" role="img" aria-label="Running total of actions by teacher rank."></svg>
+      </div>
+    </div>
+    <div class="callouts">
+      <div class="callout"><div class="v" id="c-med"></div><div class="k">actions for the typical (middle) active teacher</div></div>
+      <div class="callout"><div class="v" id="c-avg"></div><div class="k">average actions, pulled up by a few heavy users</div></div>
+      <div class="callout"><div class="v" id="c-zero"></div><div class="k" id="c-zero-k"></div></div>
+    </div>
+    <nav class="pager"><a href="#overview"><small>Back</small>Overview</a><a class="nx" href="#tools"><small>Next</small>Tools</a></nav>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="view wrap" id="v-tools" data-view="tools" hidden>
+    <div class="vhead">
+      <div>
+        <div class="eyebrow">Tools</div>
+        <h2>Feedback is the top job this year.</h2>
+        <p>Give Feedback grew from 26% of actions in past years to <mark class="hl">41% this year</mark>. Create is the front door: 36 of this year's 48 users have used it, yet it's 2% of actions.</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="panel">
+        <div class="ptop">
+          <div><h3>Share of all actions</h3><div class="sub">With the number of teachers using each tool this year</div></div>
+          <div class="seg" id="seg-tools" role="group" aria-label="Time range">
+            <span class="thumb"></span>
+            <button type="button" id="tools-ytd" aria-pressed="true" data-v="ytd">This year</button>
+            <button type="button" id="tools-past" aria-pressed="false" data-v="past">Past years</button>
+          </div>
+        </div>
+        <div class="frows" id="frows">
+          <div class="frow hdr"><div>Tool</div><div class="tcol">Share of actions</div><div class="fpct">Share</div><div class="fteach">Users</div></div>
+        </div>
+        <details>
+          <summary>Show the numbers</summary>
+          <div class="tbl"><table id="tools-tbl"></table></div>
+        </details>
+      </div>
+      <div class="panel">
+        <div class="ptop">
+          <div><h3>Heavy users specialize</h3><div class="sub">Tool mix for the 16 teachers with 100+ actions this year</div></div>
+        </div>
+        <div class="mix" id="mix" role="img" aria-label="Tool mix per heavy user. Nine lean on Give Feedback and Inspect Writing; seven lean on Boost Activities."></div>
+        <div class="legend" id="mix-legend" style="margin-top:14px"></div>
+        <div class="take"><p><strong>Two camps that rarely mix.</strong> Of 14 teachers using Give Feedback this year, 11 also use Inspect Writing. Only 3 also use Boost.</p></div>
+      </div>
+    </div>
+    <nav class="pager"><a href="#who"><small>Back</small>Who uses it</a><a class="nx" href="#staying"><small>Next</small>Staying power</a></nav>
+  </section>
+
+  <!-- STAYING -->
+  <section class="view wrap" id="v-staying" data-view="staying" hidden>
+    <div class="vhead">
+      <div>
+        <div class="eyebrow">Staying power</div>
+        <h2>Past about 100 uses, teachers come back.</h2>
+        <p>Teachers are grouped by how much they used Brisk before this year. Light and moderate users mostly drifted off. <mark class="hl">Regular users almost all returned.</mark></p>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:28px">
+      <div class="ptop">
+        <div><h3>Where past users went this year</h3><div class="sub">All 115 teachers. Hover a band to see the count.</div></div>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--data)"></i>100+ actions this year</span>
+          <span><i class="sw" style="background:var(--data-soft)"></i>1–99 this year</span>
+          <span><i class="sw" style="background:var(--data-quiet)"></i>Not this year</span>
+        </div>
+      </div>
+      <div class="scroll-x"><svg id="sankey" class="sankey" viewBox="0 0 760 330" role="img" aria-label="Flow from actions before this year to use this year."></svg></div>
+      <details>
+        <summary>Show the numbers</summary>
+        <div class="tbl"><table id="flow-tbl"></table></div>
+      </details>
+    </div>
+    <div class="grid2 even">
+      <div class="panel">
+        <div><h3>Who came back</h3><div class="sub">Share using Brisk this year, by actions before this year</div></div>
+        <div style="margin-top:12px"><div class="vbars" id="ret" role="img" aria-label="Return rate: 1 to 9 actions 30 percent, 10 to 100 actions 30 percent, 101 to 1,000 actions 68 percent, over 1,000 actions 93 percent."></div><div class="vticks" id="ret-x"></div></div>
+      </div>
+      <div class="panel">
+        <div><h3>More tools, more use</h3><div class="sub">Typical all-time actions, by number of tools used</div></div>
+        <div style="margin-top:12px"><div class="vbars" id="brd" role="img" aria-label="Median all-time actions: 1 tool 6, 2 tools 24, 3 tools 68, 4 tools 802, 5 or 6 tools 1,365."></div><div class="vticks" id="brd-x"></div></div>
+      </div>
+    </div>
+    <div class="take"><p><strong>For PD, the goal is repeated use on real work, across more than one tool.</strong> Teachers who get past about 100 uses, or use four or more tools, tend to keep going. This data shows the pattern. It can't prove which comes first.</p></div>
+    <nav class="pager"><a href="#tools"><small>Back</small>Tools</a><a class="nx" href="#next"><small>Next</small>Next moves</a></nav>
+  </section>
+
+  <!-- NEXT -->
+  <section class="view wrap" id="v-next" data-view="next" hidden>
+    <div class="vhead">
+      <div>
+        <div class="eyebrow">Next moves</div>
+        <h2>Three groups where support could matter most.</h2>
+        <p>Each group needs a different kind of nudge.</p>
+      </div>
+    </div>
+    <div class="moves">
+      <article class="move" style="--i:0">
+        <div class="v">8</div>
+        <h3>Former regulars</h3>
+        <p>These teachers had 100+ actions in past years and haven't used Brisk this year.</p>
+        <div class="try"><b>Try:</b> a quick personal check-in. Ask what changed.</div>
+      </article>
+      <article class="move" style="--i:1">
+        <div class="v">14</div>
+        <h3>Create-only users</h3>
+        <p>Active this year, but they have only used Create. That's 29% of this year's users.</p>
+        <div class="try"><b>Try:</b> run Give Feedback or Inspect Writing on student work they already have.</div>
+      </article>
+      <article class="move" style="--i:2">
+        <div class="v">24</div>
+        <h3>Not yet started</h3>
+        <p>These teachers haven't tried Brisk. Only 4 new users have joined this year.</p>
+        <div class="try"><b>Try:</b> pair each with a regular user for one real task, start to finish.</div>
+      </article>
+    </div>
+    <div class="about">
+      <h3>About this data</h3>
+      <ul>
+        <li>Source: Brisk usage export for 115 teachers, with this school year to date and all-time totals. "Past years" means all-time minus this year.</li>
+        <li>An action is one use of a Brisk tool. Counts show how often teachers use Brisk, not the quality of the work.</li>
+        <li>Teacher names are hidden. Every chart shows patterns, not people.</li>
+        <li>This year's shares move with a few heavy users. One teacher accounts for 830 of this year's 1,991 Boost actions.</li>
+      </ul>
+    </div>
+    <nav class="pager"><a href="#staying"><small>Back</small>Staying power</a><a class="nx" href="#overview"><small>Start over</small>Overview</a></nav>
+  </section>
+</main>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = n => n.toLocaleString('en-US');
+  const NS = 'http://www.w3.org/2000/svg';
+  const svgEl = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+
+  /* ---------- data (names removed) ---------- */
+  const DOTS = [[954,7051],[953,1880],[808,2295],[723,2977],[662,2580],[476,6703],[410,700],[333,1129],[290,1627],[201,1404],[191,2232],[179,2142],[166,1196],[144,813],[123,261],[112,482],[79,4602],[75,574],[43,43],[43,43],[42,281],[38,2269],[23,23],[15,1060],[14,969],[13,237],[11,791],[11,64],[8,233],[6,97],[6,62],[6,44],[5,6],[3,407],[3,239],[3,14],[2,1325],[2,73],[2,27],[2,10],[2,7],[2,6],[2,2],[1,203],[1,30],[1,4],[1,3],[1,2],[0,2008],[0,834],[0,439],[0,173],[0,158],[0,148],[0,132],[0,110],[0,83],[0,75],[0,60],[0,38],[0,37],[0,31],[0,29],[0,24],[0,24],[0,23],[0,22],[0,21],[0,21],[0,20],[0,19],[0,17],[0,15],[0,12],[0,10],[0,9],[0,8],[0,8],[0,7],[0,5],[0,5],[0,2],[0,2],[0,2],[0,2],[0,1],[0,1],[0,1],[0,1],[0,1],[0,1]];
+  while (DOTS.length < 115) DOTS.push([0,0]);
+  const RANK = {
+    ytd:{vals:DOTS.map(d=>d[0]).filter(v=>v>0).sort((a,b)=>b-a), top:5, ticks:[0,250,500,750,1000], med:'15', avg:'150',
+      zero:'67', zeroK:'teachers with no actions this year', label:'this year',
+      lede:'The top 10% of users, 5 teachers, made <mark class="hl">57% of this year’s actions</mark>. Most active teachers use Brisk lightly.'},
+    all:{vals:DOTS.map(d=>d[1]).filter(v=>v>0).sort((a,b)=>b-a), top:9, ticks:[0,2000,4000,6000,8000], med:'43', avg:'592',
+      zero:'1%', zeroK:'of all actions came from the bottom half of users', label:'all time',
+      lede:'The top 10% of users, 9 teachers, made <mark class="hl">61% of all actions ever</mark>. Half of all actions came from just 7 teachers.'}
+  };
+  const TOOLS = [
+    {n:'Give Feedback', d:'AI-drafted feedback on student work', c:'var(--t1)', ytd:2979, past:11949, t:14},
+    {n:'Inspect Writing', d:'Replay how student writing came together', c:'var(--t2)', ytd:1878, past:10021, t:21},
+    {n:'Boost Activities', d:'AI activities students work through', c:'var(--t3)', ytd:1991, past:20884, t:15},
+    {n:'Create', d:'Generate lessons, quizzes, resources', c:'var(--t4)', ytd:173, past:2895, t:36},
+    {n:'Batch Feedback', d:'Feedback for a whole class at once', c:'var(--t5)', ytd:167, past:790, t:2},
+    {n:'Change Level', d:'Rewrite text for a reading level', c:'var(--t6)', ytd:3, past:131, t:3}
+  ];
+  const TOT = {ytd:7191, past:46670};
+  // heavy users this year: [total, feedback, inspect, boost, create, batch, change]
+  const MIX = [[954,35,3,830,2,84,0],[953,372,554,0,27,0,0],[808,380,342,0,3,83,0],[723,597,121,0,5,0,0],[662,655,7,0,0,0,0],[476,444,32,0,0,0,0],[410,226,182,0,2,0,0],[333,0,295,37,1,0,0],[290,2,49,239,0,0,0],[201,2,0,199,0,0,0],[191,156,28,0,7,0,0],[179,0,11,168,0,0,0],[166,59,106,0,1,0,0],[144,0,0,135,9,0,0],[123,0,0,120,3,0,0],[112,0,0,106,6,0,0]];
+  const LEFT = ['1,000+','101–1,000','10–100','1–9','Never before'];
+  const RIGHT = ['100+ this year','1–99 this year','Not this year'];
+  const RCOL = ['var(--data)','var(--data-soft)','var(--data-quiet)'];
+  const FLOW = [[10,4,1],[6,9,7],[0,8,19],[0,7,16],[0,4,24]];
+
+  /* ---------- tooltip ---------- */
+  const tip = document.getElementById('tip');
+  function moveTip(e){
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + 14, y = e.clientY - h - 12;
+    if (x + w > window.innerWidth - 8) x = e.clientX - w - 14;
+    if (x < 8) x = 8;
+    if (y < 8) y = e.clientY + 18;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  function showTip(e, html){ tip.innerHTML = html; tip.classList.add('on'); moveTip(e); }
+  function hideTip(){ tip.classList.remove('on'); }
+  function bindTip(el, html){
+    el.addEventListener('pointerenter', e => showTip(e, html(e)));
+    el.addEventListener('pointermove', moveTip);
+    el.addEventListener('pointerleave', hideTip);
+  }
+
+  /* ---------- overview dots ---------- */
+  const dotsEl = document.getElementById('dots');
+  DOTS.forEach((d,i) => {
+    const s = document.createElement('span');
+    const cls = d[0] > 0 ? 'a' : d[1] > 0 ? 'l' : 'n';
+    s.className = 'dot ' + cls; s.style.setProperty('--i', i);
+    bindTip(s, () => cls === 'n' ? '<strong>Not yet</strong>Hasn’t used Brisk' : '<strong>' + fmt(d[0]) + ' this year</strong>' + fmt(d[1]) + ' all time');
+    dotsEl.appendChild(s);
+  });
+
+  /* ---------- segmented controls ---------- */
+  const segPlacers = [];
+  function seg(id, onChange){
+    const el = document.getElementById(id), thumb = el.querySelector('.thumb'), btns = [...el.querySelectorAll('button')];
+    const place = b => { thumb.style.left = b.offsetLeft + 'px'; thumb.style.width = b.offsetWidth + 'px'; };
+    btns.forEach(b => b.addEventListener('click', () => { btns.forEach(x => x.setAttribute('aria-pressed', x === b)); place(b); onChange(b.dataset.v); }));
+    segPlacers.push(() => place(btns.find(b => b.getAttribute('aria-pressed') === 'true')));
+  }
+
+  /* ---------- who: ranked columns ---------- */
+  const colsEl = document.getElementById('cols'), yax = document.getElementById('yax'), gridl = document.getElementById('gridl');
+  function drawCols(key){
+    const R = RANK[key], max = R.ticks[R.ticks.length-1];
+    yax.innerHTML = ''; gridl.innerHTML = ''; colsEl.innerHTML = '';
+    R.ticks.forEach(t => {
+      const p = t / max * 100;
+      const s = document.createElement('span'); s.style.bottom = p + '%'; s.textContent = t >= 1000 ? (t/1000) + 'k' : t; yax.appendChild(s);
+      const g = document.createElement('div'); g.style.bottom = p + '%'; if (!t) g.className = 'base'; gridl.appendChild(g);
+    });
+    R.vals.forEach((v,i) => {
+      const c = document.createElement('div'); c.className = 'col' + (i < R.top ? ' top' : ''); c.style.setProperty('--i', i);
+      const b = document.createElement('i'); b.style.height = Math.max(v / max * 100, 0.6) + '%'; c.appendChild(b);
+      bindTip(c, () => '<strong>' + fmt(v) + ' actions</strong>Rank ' + (i+1) + ' of ' + R.vals.length + ', ' + R.label);
+      colsEl.appendChild(c);
+    });
+    document.getElementById('xcount').textContent = R.vals.length + ' teachers';
+  }
+
+  /* ---------- who: running total curve ---------- */
+  const curveSvg = document.getElementById('curve');
+  function drawCurve(key){
+    const vals = DOTS.map(d => d[key === 'ytd' ? 0 : 1]).sort((a,b)=>b-a);
+    const total = vals.reduce((a,b)=>a+b,0), N = vals.length;
+    const W = 420, H = 270, L = 40, Rm = 14, T = 12, B = 34, pw = W - L - Rm, ph = H - T - B;
+    const X = r => L + r / N * pw, Y = p => T + ph - p / 100 * ph;
+    curveSvg.innerHTML = '';
+    const ax = svgEl('g', {class:'ax'}, curveSvg);
+    [0,25,50,75,100].forEach(p => {
+      svgEl('line', {x1:L, x2:W-Rm, y1:Y(p), y2:Y(p), class: p ? '' : 'base'}, ax);
+      svgEl('text', {x:L-8, y:Y(p)+4, 'text-anchor':'end'}, ax).textContent = p + '%';
+    });
+    [1,25,50,75,100,115].forEach(r => { svgEl('text', {x:X(r), y:H-B+18, 'text-anchor':'middle'}, ax).textContent = r; });
+    svgEl('text', {x:L + pw/2, y:H-2, 'text-anchor':'middle'}, ax).textContent = 'teachers, most active first';
+    svgEl('line', {x1:X(0), y1:Y(0), x2:X(N), y2:Y(100), class:'even-line'}, curveSvg);
+    let cum = 0; const pts = [[X(0), Y(0)]]; const cumArr = [];
+    vals.forEach((v,i) => { cum += v; const p = cum / total * 100; cumArr.push(p); pts.push([X(i+1), Y(p)]); });
+    const d = 'M' + pts.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join('L');
+    svgEl('path', {d: d + 'L' + X(N) + ',' + Y(0) + 'Z', class:'curve-area'}, curveSvg);
+    const path = svgEl('path', {d, class:'curve'}, curveSvg);
+    const len = path.getTotalLength ? path.getTotalLength() : 900;
+    path.style.strokeDasharray = len; path.style.setProperty('--len', len);
+    const half = cumArr.findIndex(p => p >= 50) + 1;
+    const g = svgEl('g', {class:'grow-in'}, curveSvg);
+    svgEl('line', {x1:X(half), x2:X(half), y1:Y(cumArr[half-1]), y2:Y(0), stroke:'var(--muted)', 'stroke-dasharray':'2 3'}, g);
+    svgEl('circle', {cx:X(half), cy:Y(cumArr[half-1]), r:6, class:'mark-dot'}, g);
+    svgEl('text', {x:X(half) + 12, y:Y(cumArr[half-1]) + 22, class:'annot'}, g).textContent = half + ' teachers = half';
+    const zeroStart = vals.findIndex(v => v === 0);
+    if (zeroStart > 0){
+      svgEl('text', {x:X((zeroStart + N)/2), y:Y(100) - 6 + 0, 'text-anchor':'middle', class:'lbl-s'}, g).textContent = (N - zeroStart) + ' with none';
+      svgEl('line', {x1:X(zeroStart), x2:X(N), y1:Y(100)+4, y2:Y(100)+4, stroke:'var(--muted)', 'stroke-width':1}, g);
+    }
+    const cross = svgEl('line', {y1:T, y2:T+ph, class:'cross'}, curveSvg);
+    const hd = svgEl('circle', {r:5, fill:'var(--data)', stroke:'var(--surface)', 'stroke-width':2, opacity:0}, curveSvg);
+    const hit = svgEl('rect', {x:L, y:T, width:pw, height:ph, class:'hit'}, curveSvg);
+    hit.addEventListener('pointermove', e => {
+      const box = curveSvg.getBoundingClientRect(), sx = (e.clientX - box.left) / box.width * W;
+      const r = Math.min(N, Math.max(1, Math.round((sx - L) / pw * N)));
+      cross.setAttribute('x1', X(r)); cross.setAttribute('x2', X(r)); cross.style.opacity = .35;
+      hd.setAttribute('cx', X(r)); hd.setAttribute('cy', Y(cumArr[r-1])); hd.setAttribute('opacity', 1);
+      showTip(e, '<strong>' + Math.round(cumArr[r-1]) + '% of actions</strong>from the top ' + r + ' teacher' + (r>1?'s':''));
+    });
+    hit.addEventListener('pointerleave', () => { cross.style.opacity = 0; hd.setAttribute('opacity', 0); hideTip(); });
+  }
+
+  function drawWho(key, animate){
+    const R = RANK[key];
+    drawCols(key); drawCurve(key);
+    document.getElementById('who-lede').innerHTML = R.lede;
+    document.getElementById('c-med').textContent = R.med;
+    document.getElementById('c-avg').textContent = R.avg;
+    document.getElementById('c-zero').textContent = R.zero;
+    document.getElementById('c-zero-k').textContent = R.zeroK;
+    if (animate) replay(document.getElementById('v-who'));
+  }
+  drawWho('ytd', false);
+  seg('seg-who', v => drawWho(v, true));
+
+  /* ---------- tools: share rows ---------- */
+  const frows = document.getElementById('frows'), fills = [], pcts = [], toolState = {k:'ytd'};
+  const share = (t,k) => t[k] / TOT[k] * 100;
+  TOOLS.forEach((t,i) => {
+    const r = document.createElement('div'); r.className = 'frow';
+    r.innerHTML = '<div><div class="fname"><i class="sw"></i><span></span></div><div class="fdesc"></div></div><div class="track"><i></i></div><div class="fpct"></div><div class="fteach"></div>';
+    r.querySelector('.sw').style.background = t.c;
+    r.querySelector('.fname span').textContent = t.n;
+    r.querySelector('.fdesc').textContent = t.d;
+    r.querySelector('.fteach').textContent = t.t;
+    const f = r.querySelector('.track i'); f.style.background = t.c; f.style.setProperty('--i', i);
+    fills.push(f); pcts.push(r.querySelector('.fpct'));
+    bindTip(r.querySelector('.track'), () => '<strong>' + fmt(t[toolState.k]) + ' actions</strong>' + t.n + (toolState.k === 'ytd' ? ', this year' : ', past years'));
+    frows.appendChild(r);
+  });
+  const maxShare = Math.max(...TOOLS.map(t => Math.max(share(t,'ytd'), share(t,'past'))));
+  function drawTools(k){
+    toolState.k = k;
+    TOOLS.forEach((t,i) => { const s = share(t,k); fills[i].style.width = (s / maxShare * 100) + '%'; pcts[i].textContent = s < 0.5 ? '<1%' : Math.round(s) + '%'; });
+  }
+  drawTools('ytd'); seg('seg-tools', drawTools);
+  const tt = document.getElementById('tools-tbl');
+  tt.innerHTML = '<thead><tr><th>Tool</th><th class="n">This year</th><th class="n">Share</th><th class="n">Past years</th><th class="n">Share</th><th class="n">Users this year</th></tr></thead>';
+  const tb = document.createElement('tbody');
+  TOOLS.forEach(t => { const tr = document.createElement('tr');
+    [t.n, fmt(t.ytd), share(t,'ytd').toFixed(1)+'%', fmt(t.past), share(t,'past').toFixed(1)+'%', t.t].forEach((v,j) => { const td = document.createElement('td'); td.textContent = v; if (j) td.className = 'n'; tr.appendChild(td); });
+    tb.appendChild(tr); });
+  tt.appendChild(tb);
+
+  /* ---------- tools: mix stacks ---------- */
+  const mix = document.getElementById('mix');
+  const camp = r => (r[1] + r[2] >= r[3]) ? 0 : 1;
+  const groups = [['Feedback and writing', MIX.filter(r => camp(r) === 0)], ['Student activities', MIX.filter(r => camp(r) === 1)]];
+  let si = 0;
+  groups.forEach(([name, rows]) => {
+    const g = document.createElement('div'); g.className = 'grp'; g.textContent = name + ' · ' + rows.length + ' teachers'; mix.appendChild(g);
+    rows.forEach(r => {
+      const row = document.createElement('div'); row.className = 'mrow';
+      const tot = document.createElement('div'); tot.className = 'tot'; tot.textContent = fmt(r[0]);
+      const st = document.createElement('div'); st.className = 'stack'; st.style.setProperty('--i', si++);
+      r.slice(1).forEach((v,j) => {
+        if (v / r[0] < 0.01) return;
+        const seg = document.createElement('i'); seg.style.width = (v / r[0] * 100) + '%'; seg.style.background = TOOLS[j].c;
+        bindTip(seg, () => '<strong>' + Math.round(v / r[0] * 100) + '% ' + TOOLS[j].n + '</strong>' + fmt(v) + ' of ' + fmt(r[0]) + ' actions');
+        st.appendChild(seg);
+      });
+      row.appendChild(tot); row.appendChild(st); mix.appendChild(row);
+    });
+  });
+  const ml = document.getElementById('mix-legend');
+  TOOLS.slice(0,5).forEach(t => { const s = document.createElement('span'); const sw = document.createElement('i'); sw.className = 'sw'; sw.style.background = t.c; s.appendChild(sw); s.appendChild(document.createTextNode(t.n)); ml.appendChild(s); });
+
+  /* ---------- staying: sankey ---------- */
+  let sankeyW = 0;
+  function drawSankey(){
+    const s = document.getElementById('sankey');
+    const cw = Math.round(s.parentElement.clientWidth);
+    if (!cw || cw === sankeyW) return;
+    sankeyW = cw; s.innerHTML = '';
+    const narrow = cw < 560;
+    const W = Math.max(cw, 340), H = narrow ? 300 : 330, nodeW = 12, gap = 10, top = 8;
+    const lx = narrow ? 94 : 150, rx = W - (narrow ? 112 : 170);
+    s.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    s.classList.toggle('narrow', narrow);
+    const total = 115, avail = H - top * 2 - gap * 4, k = avail / total;
+    const lTot = FLOW.map(r => r.reduce((a,b)=>a+b,0));
+    const rTot = RIGHT.map((_,j) => FLOW.reduce((a,r)=>a+r[j],0));
+    const rGap = (H - top*2 - total*k) / 2;
+    let y = top; const lY = lTot.map(t => { const v = y; y += t*k + gap; return v; });
+    y = top; const rY = rTot.map(t => { const v = y; y += t*k + rGap; return v; });
+    const rib = svgEl('g', {class:'ribbons'}, s);
+    const lOff = lY.slice(), rOff = rY.slice();
+    // order inflows on right by left order, outflows on left by right order
+    const rIn = RIGHT.map((_,j) => rY[j]);
+    FLOW.forEach((row,i) => row.forEach((v,j) => {
+      if (!v) return;
+      const h = v * k, y0 = lOff[i], y1 = rIn[j];
+      lOff[i] += h; rIn[j] += h;
+      const x0 = lx + nodeW, x1 = rx, mx = (x0 + x1) / 2;
+      const d = 'M'+x0+','+y0+' C'+mx+','+y0+' '+mx+','+y1+' '+x1+','+y1+' L'+x1+','+(y1+h)+' C'+mx+','+(y1+h)+' '+mx+','+(y0+h)+' '+x0+','+(y0+h)+' Z';
+      const p = svgEl('path', {d, fill:RCOL[j], class:'ribbon'}, rib);
+      bindTip(p, () => '<strong>' + v + ' teacher' + (v>1?'s':'') + '</strong>' + LEFT[i] + ' before → ' + RIGHT[j].toLowerCase());
+    }));
+    lTot.forEach((t,i) => {
+      svgEl('rect', {x:lx, y:lY[i], width:nodeW, height:Math.max(t*k,2), rx:3, class:'node'}, s);
+      svgEl('text', {x:lx - 12, y:lY[i] + t*k/2 - 2, 'text-anchor':'end', class:'lbl'}, s).textContent = LEFT[i];
+      svgEl('text', {x:lx - 12, y:lY[i] + t*k/2 + 13, 'text-anchor':'end', class:'lbl-s'}, s).textContent = t + ' teachers';
+    });
+    rTot.forEach((t,j) => {
+      svgEl('rect', {x:rx, y:rY[j], width:nodeW, height:t*k, rx:3, fill:RCOL[j], stroke:'var(--ink)', 'stroke-width':1}, s);
+      svgEl('text', {x:rx + nodeW + 12, y:rY[j] + t*k/2 - 2, class:'lbl'}, s).textContent = RIGHT[j];
+      svgEl('text', {x:rx + nodeW + 12, y:rY[j] + t*k/2 + 13, class:'lbl-s'}, s).textContent = t + ' teachers';
+    });
+  }
+  (function(){
+    const lTot = FLOW.map(r => r.reduce((a,b)=>a+b,0));
+    const ft = document.getElementById('flow-tbl');
+    ft.innerHTML = '<thead><tr><th>Actions before this year</th>' + RIGHT.map(r => '<th class="n">' + r + '</th>').join('') + '<th class="n">Total</th></tr></thead>';
+    const b = document.createElement('tbody');
+    FLOW.forEach((row,i) => { const tr = document.createElement('tr'); [LEFT[i], ...row, lTot[i]].forEach((v,j) => { const td = document.createElement('td'); td.textContent = v; if (j) td.className = 'n'; tr.appendChild(td); }); b.appendChild(tr); });
+    ft.appendChild(b);
+  })();
+
+  /* ---------- staying: small bar charts ---------- */
+  function vbars(id, xid, data, max, valFmt, tipFmt){
+    const el = document.getElementById(id), x = document.getElementById(xid);
+    data.forEach((d,i) => {
+      const b = document.createElement('div'); b.className = 'vb';
+      const f = document.createElement('div'); f.className = 'bar-fill';
+      f.style.height = Math.max(d.v / max * 100, 1.5) + '%'; f.style.background = d.c; f.style.setProperty('--i', i);
+      const l = document.createElement('div'); l.className = 'lab'; l.textContent = valFmt(d);
+      f.appendChild(l); b.appendChild(f); el.appendChild(b);
+      bindTip(b, () => tipFmt(d));
+      const t = document.createElement('div'); t.textContent = d.k;
+      const sm = document.createElement('small'); sm.textContent = d.s; t.appendChild(sm); x.appendChild(t);
+    });
+  }
+  vbars('ret','ret-x',[
+    {k:'1–9', s:'7 of 23', v:30.4, c:'var(--r1)'},
+    {k:'10–100', s:'8 of 27', v:29.6, c:'var(--r2)'},
+    {k:'101–1k', s:'15 of 22', v:68.2, c:'var(--r3)'},
+    {k:'1k+', s:'14 of 15', v:93.3, c:'var(--r4)'}
+  ], 100, d => Math.round(d.v) + '%', d => '<strong>' + Math.round(d.v) + '% came back</strong>' + d.s + ' teachers with ' + d.k + ' past actions');
+  vbars('brd','brd-x',[
+    {k:'1', s:'n=22', v:6, c:'var(--data-quiet)'},
+    {k:'2', s:'n=23', v:24, c:'var(--data-quiet)'},
+    {k:'3', s:'n=18', v:68, c:'var(--data-quiet)'},
+    {k:'4', s:'n=16', v:802, c:'var(--data)'},
+    {k:'5–6', s:'n=12', v:1365, c:'var(--data)'}
+  ], 1400, d => fmt(d.v), d => '<strong>' + fmt(d.v) + ' actions</strong>Typical teacher using ' + d.k + ' tool' + (d.k === '1' ? '' : 's') + ' (' + d.s.replace('n=','') + ' teachers)');
+
+  /* ---------- routing + motion ---------- */
+  const VIEWS = ['overview','who','tools','staying','next'];
+  const tabs = [...document.querySelectorAll('#tabs a')], inkBar = document.querySelector('#tabs .ink');
+  function placeInk(){
+    const a = tabs.find(t => t.getAttribute('aria-current') === 'page'); if (!a) return;
+    inkBar.style.left = a.offsetLeft + 'px'; inkBar.style.width = a.offsetWidth + 'px';
+  }
+  function replay(view){
+    if (reduce) return;
+    view.querySelectorAll('#cols, #curve, .frows, .mix, #sankey, .vbars').forEach(el => { el.classList.remove('play'); void el.getBoundingClientRect(); el.classList.add('play'); });
+  }
+  function countUp(){
+    if (reduce) return;
+    document.querySelectorAll('.count').forEach(el => {
+      const to = +el.dataset.to, start = performance.now(), dur = 1000;
+      (function step(now){ const p = Math.min((now - start) / dur, 1), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(Math.round(to * e)); if (p < 1) requestAnimationFrame(step); })(start);
+    });
+  }
+  let current = null;
+  function show(name, first){
+    if (!VIEWS.includes(name)) name = 'overview';
+    if (name === current) return;
+    VIEWS.forEach(v => { const el = document.getElementById('v-' + v); el.hidden = v !== name; el.classList.remove('enter'); });
+    const view = document.getElementById('v-' + name);
+    tabs.forEach(t => t.toggleAttribute('aria-current', false));
+    const tab = tabs.find(t => t.dataset.v === name); tab.setAttribute('aria-current', 'page');
+    tab.scrollIntoView({block:'nearest', inline:'nearest'});
+    placeInk(); segPlacers.forEach(f => f());
+    if (name === 'staying') drawSankey();
+    if (!reduce){ void view.offsetWidth; view.classList.add('enter'); replay(view); if (name === 'overview') countUp(); }
+    if (!first) window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+    current = name;
+  }
+  window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+  window.addEventListener('resize', () => { placeInk(); segPlacers.forEach(f => f()); if (current === 'staying') drawSankey(); });
+  if (document.fonts) document.fonts.ready.then(() => { placeInk(); segPlacers.forEach(f => f()); });
+  show(location.hash.slice(1) || 'overview', true);
+})();
+</script>
+
+</body>
+</html>
